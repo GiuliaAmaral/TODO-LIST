@@ -1,19 +1,19 @@
 'use strict';
 
-{/* <label class="todo__item">
-<input type="checkbox">
-<div>teste de item 1</div>
-<input type="button" value="X"> 
-</label> */}
-
 // Criando uma função para criar os itens da lista
 
-let criarItem = (tarefa,status) => {
+let bancoDados = [
+    {"tarefa": "Estudar", "status":""},
+    {"tarefa": "netflix", "status":"checked"}
+
+];
+
+let criarItem = (descricao,status="") => {
     let item = document.createElement("label"); // nesta linha estou direcionando o código para criar um elemento do tipo label no documento HTML
     item.classList.add("todo__item"); // adicionando a classe todo-item ao label
     item.innerHTML = `
         <input type="checkbox" ${status}>
-        <div>${tarefa}</div>
+        <div>${descricao}</div>
         <input type="button" value="X">
     
     `
