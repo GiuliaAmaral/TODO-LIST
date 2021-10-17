@@ -4,7 +4,9 @@
 
 let bancoDados = [
     {"tarefa": "Estudar", "status":""},
-    {"tarefa": "netflix", "status":"checked"}
+    {"tarefa": "netflix", "status":"checked"},
+    {"tarefa": "comer pipoca", "status":"checked"}
+    
 
 ];
 
@@ -20,4 +22,18 @@ let criarItem = (descricao,status="") => {
     document.getElementById("todoList").appendChild(item); //Aqui estou pegando o elemento do html por ID e estou adicionando o elemento item a ele
 }
 
+let limparItem = () => {
+    let toDoList = document.getElementById("todoList");
+    while (toDoList.firstChild) {
+        toDoList.removeChild(toDoList.lastChild);
+    }
+}
 
+let atualizaLista = () => {
+    limparItem();
+    bancoDados.forEach (item => criarItem (item.tarefa, item.status)); //adicionando as tarefas e status ao banco de dados sempre que for criado um novo item
+}
+
+atualizaLista();
+
+document.getElementById("nemItem")
